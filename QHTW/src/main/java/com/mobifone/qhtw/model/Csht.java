@@ -1,5 +1,7 @@
 package com.mobifone.qhtw.model;
 
+import org.hibernate.mapping.Join;
+
 import javax.persistence.*;
 
 @Entity
@@ -23,29 +25,16 @@ public class Csht {
     private String diaChi;
     @Column(name = "ma_so_huu_csht")
     private Integer maSoHuuCsht;
-    @Column(name = "trang_thai_hoat_dong")
+    @Column(name = "trang_thai_hoat_dong",columnDefinition = "boolean")
     private boolean trangThai;
     @Column(name = "ghi_chu")
     private String ghiChu;
-    @Column(name = "ma_tinh")
-    private String maTinh;
+    @ManyToOne
+    @JoinColumn(name = "ma_tịnh",nullable = false)
+    private Tinh tinh;
 
     public Csht() {
     }
-
-    public Csht(String siteId, String siteIdKhac, String tenTram, Float viDo, Float kinhDo, String diaChi, Integer maSoHuuCsht, boolean trangThai, String ghiChu, String maTinh) {
-        this.siteId = siteId;
-        this.siteIdKhac = siteIdKhac;
-        this.tenTram = tenTram;
-        this.viDo = viDo;
-        this.kinhDo = kinhDo;
-        this.diaChi = diaChi;
-        this.maSoHuuCsht = maSoHuuCsht;
-        this.trangThai = trangThai;
-        this.ghiChu = ghiChu;
-        this.maTinh = maTinh;
-    }
-
     public Long getMaCSHT() {
         return maCSHT;
     }
@@ -126,12 +115,12 @@ public class Csht {
         this.ghiChu = ghiChu;
     }
 
-    public String getMaTinh() {
-        return maTinh;
+    public Tinh getMaTinh() {
+        return tinh;
     }
 
-    public void setMaTinh(String maTinh) {
-        this.maTinh = maTinh;
+    public void setMaTinh(Tinh maTinh) {
+        this.tinh = maTinh;
     }
 
     @Override
@@ -146,7 +135,7 @@ public class Csht {
                 ", maSoHuuCsht=" + maSoHuuCsht +
                 ", trangThai=" + trangThai +
                 ", ghiChu='" + ghiChu + '\'' +
-                ", maTinh='" + maTinh + '\'' +
+                ", maTinh='" + tinh + '\'' +
                 '}';
     }
 }

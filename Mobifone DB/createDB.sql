@@ -110,6 +110,7 @@ create table csht (
 
 set global local_infile=true;
     show global variables like 'local_infile';
+    -- Chạy câu lệnh bên dưới trong shell window
     -- .\mysql --local_infile=1 -u root -p mobifone
     -- mysql> LOAD DATA LOCAL INFILE 'E:\\csht.txt' INTO TABLE csht FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\r\n';
 

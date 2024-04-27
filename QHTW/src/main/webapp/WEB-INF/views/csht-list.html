@@ -364,7 +364,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h2 class="h3 mb-2 text-gray-800" th:text="'Tổng số trạm:'+ ${listCsht.size()}"></h2>
+                    <h2 class="h3 mb-2 text-gray-800" th:text="'Tổng số trạm:'+ ${listSite.size()}"></h2>
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
@@ -402,7 +402,7 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <tr th:each="csht:${listCsht}">
+                                        <tr th:each="csht:${listSite}">
                                             <td th:text="${csht.maTinh}">
                                             <td th:text="${csht.siteId}">
                                             <td th:text="${csht.siteIdKhac}">
